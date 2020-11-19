@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-import { InputGroup, FormControl } from "react-bootstrap";
-import { categories } from "./../data";
-import { Row, Col, Container } from "react-bootstrap";
+import React from "react";
 
 export default function Goods(props) {
   return (

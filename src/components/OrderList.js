@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
-import { categories } from "./../data";
-import { Row, Col, Container, Table, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Table } from "react-bootstrap";
 
 export default function OrderList(props) {
   function clearHanlder() {
