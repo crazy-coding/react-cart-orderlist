@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -45,10 +50,13 @@ export default function App() {
           <Header />
 
           <Switch>
+            <Route exact path="/">
+              <Redirect to="/current" />
+            </Route>
             <Route path="/orders">
               <Orders />
             </Route>
-            <Route exact path="/current">
+            <Route path="/current">
               <Container fluid className="pt-4">
                 <Row>
                   <Col xs={12} md={8} className="border-right">
