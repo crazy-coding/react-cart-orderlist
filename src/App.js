@@ -29,10 +29,14 @@ export default function App() {
   function selectGoodHandler(good) {
     const existGood = carts.filter((cart) => cart.good === good);
     if (existGood.length) {
-      setCarts([
-        ...carts.filter((cart) => cart.good !== good),
-        { good: good, count: existGood[0].count + good.set }
-      ]);
+      let ncarts = carts;
+      ncarts.map((ct, i) => {
+        if (ct.good === good) {
+          ct.count += good.set;
+        }
+        return ct;
+      });
+      setCarts([...ncarts]);
     } else {
       setCarts([...carts, { good: good, count: good.set }]);
     }

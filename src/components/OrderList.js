@@ -12,10 +12,14 @@ export default function OrderList(props) {
   function countHandler(cart, plus) {
     const existCart = props.carts.filter((ct) => ct === cart);
     if (existCart[0].count + (plus ? 1 : -1) > 0) {
-      props.setCarts([
-        ...props.carts.filter((ct) => ct !== cart),
-        { good: existCart[0].good, count: existCart[0].count + (plus ? 1 : -1) }
-      ]);
+      let ncarts = props.carts;
+      ncarts.map((ct, i) => {
+        if (ct === cart) {
+          ct.count += plus ? 1 : -1;
+        }
+        return ct;
+      });
+      props.setCarts([...ncarts]);
     } else {
       props.setCarts([...props.carts.filter((ct) => ct !== cart)]);
     }
